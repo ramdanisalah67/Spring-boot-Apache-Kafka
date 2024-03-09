@@ -32,7 +32,7 @@ public class Producer {
         log.info(String.format("Product sent %s",product));
         Message<Product> message = MessageBuilder
                 .withPayload(product)
-                .setHeader(KafkaHeaders.TOPIC,"Topic-salah")
+                .setHeader(KafkaHeaders.TOPIC,"Topic-salah-json")
                 .build();
 
         kafkaTemplate.send(message);

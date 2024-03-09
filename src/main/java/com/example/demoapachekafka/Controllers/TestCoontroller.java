@@ -17,7 +17,7 @@ import java.util.UUID;
 public class TestCoontroller {
 
     private final Producer producer;
-
+    private static int n=0 ;
 
     @GetMapping("send")
     public ResponseEntity<String> saveMessageToTopic(@RequestParam String message){
@@ -28,7 +28,7 @@ public class TestCoontroller {
 
     @GetMapping("sendProduct")
     public ResponseEntity<String> saveProductToTopic(){
-        Product product = new Product(UUID.randomUUID().toString(),"", BigDecimal.valueOf(152));
+        Product product = new Product(UUID.randomUUID().toString(),"this is Product "+n++, BigDecimal.valueOf(152));
         producer.sendProduct(product);
         return ResponseEntity.ok("Product saved to kafka Topic !!!");
     }
